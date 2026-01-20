@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arooj Ishtiaq - SEO Content Writer & Digital Strategist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0a0e27;
+            --secondary: #1a1f3a;
+            --accent: #ff6b6b;
+            --accent-2: #4ecdc4;
+            --light: #ffffff;
+            --gray: #f7f9fc;
+            --text: #2d3748;
+            --text-light: #718096;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            color: var(--text);
+            background: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%);
+            z-index: 9999;
+            transition: width 0.1s ease;
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        .nav {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: flex;
+            gap: 1rem;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #2a2f4a 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 107, 107, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(78, 205, 196, 0.15) 0%, transparent 50%);
+            animation: gradient-shift 15s ease infinite;
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { transform: translate(-10%, -10%) rotate(0deg); }
+            50% { transform: translate(10%, 10%) rotate(180deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1000px;
+            padding: 2rem;
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: rgba(255, 107, 107, 0.2);
+            border: 1px solid var(--accent);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 10vw, 6.5rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1;
+            letter-spacing: -3px;
+            background: linear-gradient(135deg, #fff 0%, #ff6b6b 50%, #4ecdc4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .tagline {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-description {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1.2rem 3rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            display: inline-block;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .btn-linkedin {
+            background: #0077b5;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 119, 181, 0.4);
+        }
+
+        .btn-linkedin:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 119, 181, 0.5);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        section {
+            padding: 3rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-label {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            letter-spacing: -2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .about {
+            background: var(--light);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            max-width: 350px;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+            margin: 0 auto;
+        }
+
+        .about-image::before {
+            content: '✍️';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 8rem;
+            opacity: 0.3;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-card {
+            background: var(--gray);
+            padding: 1.2rem;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .contact-card:hover {
+            background: white;
+            border-color: var(--accent);
+            transform: translateX(5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .contact-card a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .experience {
+            background: linear-gradient(180deg, #f7f9fc 0%, #ffffff 100%);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 4rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: linear-gradient(180deg, var(--accent) 0%, var(--accent-2) 100%);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 1.5rem;
+            background: white;
+            border-radius: 25px;
+            padding: 2rem;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s ease;
+            border: 2px solid transparent;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -4.5rem;
+            top: 2rem;
+            width: 18px;
+            height: 18px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px var(--accent);
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+            border-color: var(--accent-2);
+        }
+
+        .job-header {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .job-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .job-company {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 1.15rem;
+        }
+
+        .job-badge {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .job-description ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .job-description li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 0.6rem;
+            line-height: 1.8;
+        }
+
+        .job-description li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .testimonials {
+            background: white;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, #f7f9fc 0%, #ffffff 100%);
+            padding: 2rem;
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 6rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--accent);
+            opacity: 0.2;
+            line-height: 1;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.12);
+            border-color: var(--accent);
+        }
+
+        .testimonial-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-top: 1rem;
+            border-top: 2px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .author-info h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .clients {
+            background: var(--primary);
+            color: white;
+        }
+
+        .clients .section-title {
+            color: white;
+        }
+
+        .client-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .client-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+        }
+
+        .client-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 60px rgba(255, 107, 107, 0.3);
+        }
+
+        .client-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .client-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .client-industry {
+            color: var(--accent-2);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .client-description {
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
+        }
+
+        .client-results {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .result-badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .published-work {
+            background: linear-gradient(135deg, #f7f9fc 0%, #ffffff 100%);
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .work-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .work-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .work-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .work-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border-color: var(--accent-2);
+        }
+
+        .work-card-content {
+            padding: 2rem;
+        }
+
+        .work-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .work-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .work-platform {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .work-description {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 1.2rem;
+            font-size: 0.95rem;
+        }
+
+        .work-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .work-link:hover {
+            color: var(--accent);
+            gap: 0.8rem;
+        }
+
+        .work-link svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .skills {
+            background: white;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #f7f9fc 0%, #ffffff 100%);
+            padding: 2rem;
+            border-radius: 25px;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent);
+        }
+
+        .skill-category h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            background: white;
+            padding: 0.7rem 1.3rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--accent);
+            color: white;
+            transform: scale(1.08) translateY(-2px);
+        }
+
+        .education {
+            background: linear-gradient(180deg, #f7f9fc 0%, #ffffff 100%);
+        }
+
+        .education-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 30px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2rem;
+            align-items: center;
+            transition: all 0.4s ease;
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+        }
+
+        .education-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .education-details h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-details .university {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-details .date {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .cta-banner {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .cta-banner h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta-banner p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+
+        .footer-cta {
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #2a2f4a 100%);
+            color: white;
+            padding: 3.5rem 0;
+            text-align: center;
+        }
+
+        .footer-cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+        }
+
+        .footer-cta p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        @media (max-width: 1024px) {
+            .nav {
+                display: none;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .timeline {
+                padding-left: 3rem;
+            }
+            .timeline-item::before {
+                left: -3.5rem;
+            }
+            .job-header {
+                grid-template-columns: 1fr;
+            }
+            .education-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .education-icon {
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 2rem 0;
+            }
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+
+    <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#published-work">Published Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-label">✨ SEO Content Strategist</div>
+            <h1>Arooj Ishtiaq</h1>
+            <p class="tagline">Turning Words Into Results</p>
+            <p class="hero-description">
+                I write SEO content that ranks, connects with readers, and drives real business growth. From AI startups to global brands, I help companies find their voice and reach their audience.
+            </p>
+            <div class="cta-buttons">
+                <a href="#experience" class="btn btn-primary">View My Work</a>
+                <a href="https://www.linkedin.com/in/aroojishtiaqwriter" target="_blank" class="btn btn-linkedin">Connect on LinkedIn</a>
+                <a href="mailto:aroojishtiaq5555@gmail.com" class="btn btn-secondary">Let's Collaborate</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Who I Am</div>
+                <h2 class="section-title">About Me</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-image"></div>
+                <div class="about-content">
+                    <p>I'm an SEO content writer with over 4 years of experience helping brands grow through strategic, well-researched content. I've worked with everyone from AI companies to fitness brands, creating content that gets found, gets read, and gets results.</p>
+                    <p>My approach is simple: understand the audience, find the right keywords, and write content that actually helps people. Whether it's a blog post that drives traffic, web copy that converts, or a social media strategy that builds authority, I focus on what works.</p>
+                    <p>Currently, I'm working with Vyro on their ImagineArt project, creating SEO content that helps people discover and use AI tools for creative work.</p>
+                    <div class="contact-grid">
+                        <div class="contact-card">
+                            <div class="contact-icon">📧</div>
+                            <a href="mailto:aroojishtiaq5555@gmail.com">aroojishtiaq5555@gmail.com</a>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">📱</div>
+                            <a href="tel:+923479328506">+92 347 9328506</a>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">💼</div>
+                            <a href="https://www.linkedin.com/in/aroojishtiaqwriter" target="_blank">LinkedIn Profile</a>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">🌐</div>
+                            <a href="https://aroojishtiaq.portfolial.com" target="_blank">Portfolio Website</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="experience" id="experience">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">My Journey</div>
+                <h2 class="section-title">Professional Experience</h2>
+                <p class="section-subtitle">Building content strategies that actually work</p>
+            </div>
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">SEO Content Writer</h3>
+                            <p class="job-company">🎨 Vyro (ImagineArt Project)</p>
+                        </div>
+                        <span class="job-badge">Current Role</span>
+                    </div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Writing SEO-focused content for ImagineArt, helping users discover AI image generation tools and features</li>
+                            <li>Creating guides, tutorials, and blog posts that rank for competitive AI and creative tech keywords</li>
+                            <li>Working with product teams to explain complex AI features in simple, accessible language</li>
+                            <li>Optimizing existing content to improve search rankings and user engagement</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">Content Marketer</h3>
+                            <p class="job-company">🤖 Centrox AI</p>
+                        </div>
+                        <span class="job-badge">Ended Dec 2024</span>
+                    </div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Managed client accounts and worked with teams across departments to create content that matched product goals and business needs</li>
+                            <li>Built SEO strategies from scratch, including keyword research, on-page optimization, and content planning</li>
+                            <li>Wrote AI-focused content like blogs, landing pages, and thought leadership pieces that positioned the brand as an industry expert</li>
+                            <li>Created and ran social media campaigns that grew brand visibility and audience engagement</li>
+                            <li>Tracked content performance and adjusted strategies based on what actually worked</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">Social Media & Web Copywriter</h3>
+                            <p class="job-company">🎯 Free Mind Marketing - UAE</p>
+                        </div>
+                        <span class="job-badge">Feb 2024 - Feb 2025</span>
+                    </div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Created social media strategies that boosted engagement and drove more traffic to client websites</li>
+                            <li>Wrote SEO blog posts that ranked well and brought in consistent organic traffic</li>
+                            <li>Crafted email campaigns with higher open and click rates, leading to better conversions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">SEO Expert</h3>
+                            <p class="job-company">🦉 Night Owl Consulting - Philippines</p>
+                        </div>
+                        <span class="job-badge">Sep 2023 - Jan 2024</span>
+                    </div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Ran full SEO audits to find problems and fix them, resulting in more organic traffic</li>
+                            <li>Used keyword research tools to optimize content and improve conversion rates by 10%</li>
+                            <li>Built link-building campaigns that brought in 20 high-quality backlinks every month</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">SEO Content Writer</h3>
+                            <p class="job-company">💪 DMoose - United States</p>
+                        </div>
+                        <span class="job-badge">May 2023 - Feb 2024</span>
+                    </div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Trained junior writers on SEO best practices, helping the whole team produce better content</li>
+                            <li>Worked with marketing to distribute content across multiple channels</li>
+                            <li>Ran weekly training sessions on keyword research and content optimization</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">SEO Content Writer</h3>
+                            <p class="job-company">🏊 Boxpool - UAE</p>
+                        </div>
+                        <span class="job-badge">Jan 2023 - May 2023</span>
+                    </div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Found high-potential keywords through research, increasing search volume by 35%</li>
+                            <li>Created custom SEO strategies that brought in more qualified leads</li>
+                            <li>Wrote exercise-focused content that doubled monthly page views</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">Technical WordPress Writer</h3>
+                            <p class="job-company">💻 Koncept Solutions International - Islamabad</p>
+                        </div>
+                        <span class="job-badge">Apr 2021 - Aug 2022</span>
+                    </div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Improved SEO for web content and blogs, increasing organic traffic</li>
+                            <li>Wrote clear web copy that reduced bounce rates</li>
+                            <li>Used Google Analytics to track engagement and improve content</li>
+                            <li>Worked with the marketing team to keep brand messaging consistent</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">Content Writer</h3>
+                            <p class="job-company">📚 HS Consultants - Islamabad</p>
+                        </div>
+                        <span class="job-badge">Nov 2020 - Feb 2021</span>
+                    </div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Wrote Statements of Purpose for 50+ students, helping increase university acceptance rates</li>
+                            <li>Created a feedback system that improved student satisfaction</li>
+                            <li>Worked with academic advisors to customize SOPs for specific programs, boosting STEM acceptance rates by 15%</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Client Feedback</div>
+                <h2 class="section-title">What Clients Say</h2>
+                <p class="section-subtitle">Real feedback from people I've worked with</p>
+            </div>
+            <div class="testimonial-grid">
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        Arooj is really professional when it comes to content writing. She provides you with everything needed aside from the content itself such as the keywords needed for SEO. I highly recommend her and I would totally hire her again.
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MA</div>
+                        <div class="author-info">
+                            <h4>Mosaab Adel</h4>
+                            <p>Web Designer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        Really impressed with the SEO work so far. Your expertise and attention to detail have significantly improved our online presence. Looking forward to seeing more great results. Thanks for your excellent work!
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AP</div>
+                        <div class="author-info">
+                            <h4>Aaron Pitterman</h4>
+                            <p>CEO NOC</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        Arooj is a talented content writer with a clear, engaging style and strong SEO skills. She delivers high-quality, well-researched content on time and adapts effortlessly to different formats. Highly recommended!
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">DX</div>
+                        <div class="author-info">
+                            <h4>Despoina Xirogianni</h4>
+                            <p>Senior Content Writer</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-banner">
+        <div class="container">
+            <h3>Looking for an SEO Content Writer?</h3>
+            <p>Let's talk about how I can help your brand grow</p>
+            <a href="https://www.linkedin.com/in/aroojishtiaqwriter" target="_blank" class="btn btn-linkedin">Connect on LinkedIn</a>
+        </div>
+    </section>
+
+    <section class="clients" id="clients">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label" style="background: rgba(255, 255, 255, 0.2);">Client Success Stories</div>
+                <h2 class="section-title">Brands I've Helped Grow</h2>
+                <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.8);">From AI startups to fitness brands, here's where I've made an impact</p>
+            </div>
+            <div class="client-cards">
+                
+                <div class="client-card">
+                    <div class="client-icon">🎨</div>
+                    <h3 class="client-name">Vyro (ImagineArt)</h3>
+                    <p class="client-industry">AI Image Generation Platform</p>
+                    <p class="client-description">Creating SEO content that helps users discover AI creative tools. Writing guides and tutorials that rank for competitive keywords in the AI space.</p>
+                    <div class="client-results">
+                        <span class="result-badge">SEO Writing</span>
+                        <span class="result-badge">AI Content</span>
+                        <span class="result-badge">Tutorials</span>
+                    </div>
+                </div>
+
+                <div class="client-card">
+                    <div class="client-icon">🤖</div>
+                    <h3 class="client-name">Centrox AI</h3>
+                    <p class="client-industry">AI Development & Technology</p>
+                    <p class="client-description">Managed content marketing for an AI development company, creating technical blogs, landing pages, and thought leadership content that built brand credibility.</p>
+                    <div class="client-results">
+                        <span class="result-badge">Content Strategy</span>
+                        <span class="result-badge">Brand Content</span>
+                        <span class="result-badge">Social Media</span>
+                    </div>
+                </div>
+
+                <div class="client-card">
+                    <div class="client-icon">💪</div>
+                    <h3 class="client-name">DMoose</h3>
+                    <p class="client-industry">Fitness & Health Products</p>
+                    <p class="client-description">Created SEO-optimized fitness content and trained junior writers, improving team output and bringing more organic traffic to product pages.</p>
+                    <div class="client-results">
+                        <span class="result-badge">Team Training</span>
+                        <span class="result-badge">SEO Writing</span>
+                        <span class="result-badge">Leadership</span>
+                    </div>
+                </div>
+
+                <div class="client-card">
+                    <div class="client-icon">🎯</div>
+                    <h3 class="client-name">Free Mind Marketing</h3>
+                    <p class="client-industry">Digital Marketing Agency</p>
+                    <p class="client-description">Created social media and email content strategies that increased engagement, drove more traffic, and improved conversion rates for multiple clients.</p>
+                    <div class="client-results">
+                        <span class="result-badge">Email Marketing</span>
+                        <span class="result-badge">Social Strategy</span>
+                        <span class="result-badge">Conversions</span>
+                    </div>
+                </div>
+
+                <div class="client-card">
+                    <div class="client-icon">🦉</div>
+                    <h3 class="client-name">Night Owl Consulting</h3>
+                    <p class="client-industry">SEO & Digital Consulting</p>
+                    <p class="client-description">Ran comprehensive SEO audits and built optimization strategies that increased organic traffic and improved conversion rates by 10%.</p>
+                    <div class="client-results">
+                        <span class="result-badge">SEO Audits</span>
+                        <span class="result-badge">Link Building</span>
+                        <span class="result-badge">+10% Conversions</span>
+                    </div>
+                </div>
+
+                <div class="client-card">
+                    <div class="client-icon">🏊</div>
+                    <h3 class="client-name">Boxpool</h3>
+                    <p class="client-industry">Pool Services & Recreation</p>
+                    <p class="client-description">Researched keywords and created exercise-focused content that increased search volume by 35% and doubled monthly page views.</p>
+                    <div class="client-results">
+                        <span class="result-badge">Keyword Research</span>
+                        <span class="result-badge">Content Strategy</span>
+                        <span class="result-badge">2x Page Views</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="published-work" id="published-work">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">My Writing</div>
+                <h2 class="section-title">Published Work</h2>
+                <p class="section-subtitle">Content I've written across different platforms and industries</p>
+            </div>
+            <div class="work-grid">
+                
+                <div class="work-card">
+                    <div class="work-card-content">
+                        <span class="work-badge">AI Pricing</span>
+                        <h3 class="work-title">Hailuo AI Pricing Guide</h3>
+                        <p class="work-platform">🎨 Imagine.art</p>
+                        <p class="work-description">Complete breakdown of Hailuo AI pricing plans, features, and which plan works best for different user needs.</p>
+                        <a href="https://www.imagine.art/blogs/hailuo-ai-pricing" target="_blank" rel="noopener noreferrer" class="work-link">
+                            Read Article
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-card-content">
+                        <span class="work-badge">Tutorial</span>
+                        <h3 class="work-title">Imagine Art 1.5 Pro Prompt Guide</h3>
+                        <p class="work-platform">🎨 Imagine.art</p>
+                        <p class="work-description">Step-by-step guide on using Imagine Art 1.5 Pro, with prompting tips and techniques for better AI-generated images.</p>
+                        <a href="https://www.imagine.art/blogs/imagine-art-1-5-pro-prompt-guide" target="_blank" rel="noopener noreferrer" class="work-link">
+                            Read Article
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-card-content">
+                        <span class="work-badge">AI Video</span>
+                        <h3 class="work-title">Best AI Video Generators for Movie Trailers</h3>
+                        <p class="work-platform">🎨 Imagine.art</p>
+                        <p class="work-description">Comparison of top AI video tools for creating professional movie trailers, with features, pricing, and use cases.</p>
+                        <a href="https://www.imagine.art/blogs/best-ai-video-generators-for-movie-trailers" target="_blank" rel="noopener noreferrer" class="work-link">
+                            Read Article
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-card-content">
+                        <span class="work-badge">AI Insights</span>
+                        <h3 class="work-title">Google Veo 3.1 Pricing</h3>
+                        <p class="work-platform">🎨 Imagine.art</p>
+                        <p class="work-description">Analysis of Google's AI video model pricing, features, and how it compares to other video generation tools.</p>
+                        <a href="https://www.imagine.art/blogs/Google-Veo-3.1-pricing" target="_blank" rel="noopener noreferrer" class="work-link">
+                            Read Article
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-card-content">
+                        <span class="work-badge">Resource Guide</span>
+                        <h3 class="work-title">Best AI Image Generators for Social Media</h3>
+                        <p class="work-platform">🎨 Imagine.art</p>
+                        <p class="work-description">Guide to the best AI image tools for social media marketers, with practical tips and platform-specific recommendations.</p>
+                        <a href="https://www.imagine.art/blogs/best-ai-image-generators-for-social-media" target="_blank" rel="noopener noreferrer" class="work-link">
+                            Read Article
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-card-content">
+                        <span class="work-badge">Technical Guide</span>
+                        <h3 class="work-title">Corrugated Flute Guide: Types, Uses, and Benefits</h3>
+                        <p class="work-platform">📦 NexGen Boxes</p>
+                        <p class="work-description">Complete guide to corrugated packaging, explaining different flute types and helping businesses choose the right packaging.</p>
+                        <a href="https://nexgenboxes.com/blog/corrugated-flute-guide-to-types-uses-and-benefits/" target="_blank" rel="noopener noreferrer" class="work-link">
+                            Read Article
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-card-content">
+                        <span class="work-badge">Fitness</span>
+                        <h3 class="work-title">5 Dumbbell Exercises to Sculpt Upper Body</h3>
+                        <p class="work-platform">💪 DMoose</p>
+                        <p class="work-description">Workout guide for women featuring effective upper body exercises with dumbbells, complete with form tips and progression advice.</p>
+                        <a href="https://www.dmoose.com/blogs/for-women/5-dumbbell-exercises-sculpt-upper-body-women" target="_blank" rel="noopener noreferrer" class="work-link">
+                            Read Article
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-card-content">
+                        <span class="work-badge">News</span>
+                        <h3 class="work-title">6 Men Arrested Following Mechelen Zuid Burglary</h3>
+                        <p class="work-platform">📰 Brussels Morning</p>
+                        <p class="work-description">News article covering a local burglary investigation, written with clear facts and neutral reporting.</p>
+                        <a href="https://brusselsmorning.com/6-men-arrested-following-mechelen-zuid-industrial-estate-burglary/67527/" target="_blank" rel="noopener noreferrer" class="work-link">
+                            Read Article
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-card-content">
+                        <span class="work-badge">Web Copy</span>
+                        <h3 class="work-title">Website Development Services</h3>
+                        <p class="work-platform">🎯 Free Mind Marketing</p>
+                        <p class="work-description">Service page explaining web development offerings, technical capabilities, and client-focused solutions for businesses.</p>
+                        <a href="https://freemindmarketing.com/website-development/" target="_blank" rel="noopener noreferrer" class="work-link">
+                            Read Article
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-card-content">
+                        <span class="work-badge">SEO Article</span>
+                        <h3 class="work-title">Swimming Pool Cleaning Companies Guide</h3>
+                        <p class="work-platform">🏊 Boxpool UAE</p>
+                        <p class="work-description">SEO guide helping readers find pool cleaning services, with local optimization and conversion-focused writing.</p>
+                        <a href="https://boxpool.ae/swimming-pool-cleaning-companies/" target="_blank" rel="noopener noreferrer" class="work-link">
+                            Read Article
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-card-content">
+                        <span class="work-badge">Tech Blog</span>
+                        <h3 class="work-title">8 Best AI Blog Writing Tools</h3>
+                        <p class="work-platform">✍️ Grovers.io</p>
+                        <p class="work-description">Comparison of top AI writing tools for content creators, with detailed analysis and recommendations.</p>
+                        <a href="https://grovers.io/8-best-ai-blog-writng-tools/" target="_blank" rel="noopener noreferrer" class="work-link">
+                            Read Article
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-banner">
+        <div class="container">
+            <h3>Want to Work Together?</h3>
+            <p>I'm always open to new projects and collaborations</p>
+            <a href="https://www.linkedin.com/in/aroojishtiaqwriter" target="_blank" class="btn btn-linkedin">Let's Connect</a>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Expertise</div>
+                <h2 class="section-title">Skills & Tools</h2>
+                <p class="section-subtitle">What I bring to every project</p>
+            </div>
+            <div class="skills-grid">
+                
+                <div class="skill-category">
+                    <h3>Content Creation</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SEO Copywriting</span>
+                        <span class="skill-tag">Web Content</span>
+                        <span class="skill-tag">Blog Writing</span>
+                        <span class="skill-tag">Technical Writing</span>
+                        <span class="skill-tag">Content Strategy</span>
+                        <span class="skill-tag">Research</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>SEO Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Ahrefs</span>
+                        <span class="skill-tag">SEMrush</span>
+                        <span class="skill-tag">Moz</span>
+                        <span class="skill-tag">Google Keyword Planner</span>
+                        <span class="skill-tag">Ubersuggest</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>SEO Expertise</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Keyword Research</span>
+                        <span class="skill-tag">On-Page SEO</span>
+                        <span class="skill-tag">Off-Page SEO</span>
+                        <span class="skill-tag">Content Optimization</span>
+                        <span class="skill-tag">Link Building</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Analytics Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Google Analytics</span>
+                        <span class="skill-tag">Search Console</span>
+                        <span class="skill-tag">Google Trends</span>
+                        <span class="skill-tag">Glimpse</span>
+                        <span class="skill-tag">Answer The Public</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>AI & Writing Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">ChatGPT</span>
+                        <span class="skill-tag">Jasper</span>
+                        <span class="skill-tag">Copy.ai</span>
+                        <span class="skill-tag">Grammarly</span>
+                        <span class="skill-tag">Hemingway</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>CMS Platforms</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">WordPress</span>
+                        <span class="skill-tag">Wix</span>
+                        <span class="skill-tag">Content Management</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Marketing</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Social Media Marketing</span>
+                        <span class="skill-tag">Email Marketing</span>
+                        <span class="skill-tag">Content Promotion</span>
+                        <span class="skill-tag">Marketing Funnels</span>
+                        <span class="skill-tag">Brand Management</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Leadership</span>
+                        <span class="skill-tag">Team Collaboration</span>
+                        <span class="skill-tag">Time Management</span>
+                        <span class="skill-tag">Creativity</span>
+                        <span class="skill-tag">Client Management</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="education" id="education">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Academic Background</div>
+                <h2 class="section-title">Education</h2>
+            </div>
+            <div class="education-card">
+                <div class="education-icon">🎓</div>
+                <div class="education-details">
+                    <h3>Bachelor of Medical Laboratory Technology</h3>
+                    <p class="university">National University of Medical Sciences, Rawalpindi</p>
+                    <p class="date">January 2020 - February 2024</p>
+                    <p>Trained in clinical diagnostics, lab procedures, and quality control. This background gives me a strong foundation in research, attention to detail, and understanding complex technical information, which I apply to my content writing work.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer-cta" id="contact">
+        <div class="container">
+            <h2>Ready to Work Together?</h2>
+            <p>Let's create content that gets results.</p>
+            <div class="cta-buttons">
+                <a href="mailto:aroojishtiaq5555@gmail.com" class="btn btn-primary">Start Your Project</a>
+                <a href="https://www.linkedin.com/in/aroojishtiaqwriter" target="_blank" class="btn btn-linkedin">Connect on LinkedIn</a>
+                <a href="https://aroojishtiaq.portfolial.com" target="_blank" class="btn btn-secondary">View More Work</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (window.scrollY / windowHeight) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
